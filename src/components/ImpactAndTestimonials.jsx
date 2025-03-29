@@ -1,5 +1,3 @@
-// components/ImpactAndTestimonials.jsx
-
 import React, { useEffect, useState } from 'react';
 import {
   FaBullseye,
@@ -56,7 +54,8 @@ export function ImpactAndTestimonials() {
         prev.map((val, i) => {
           const target = stats[i].percent;
           const increment = target / steps;
-          return val + increment >= target ? target : val + increment;
+          const newVal = val + increment;
+          return newVal >= target ? target : newVal;
         })
       );
     }, interval);
@@ -65,41 +64,50 @@ export function ImpactAndTestimonials() {
   }, []);
 
   return (
-    <section className="bg-black py-20 px-4 border-t border-gray-800">
+    <section className="dark:bg-black dark:text-white bg-background-warm text-text-main py-20 px-4 border-t dark:border-gray-800 border-gray-200 transition-colors">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-2">
+        <h2 className="text-3xl font-bold mb-2 dark:text-white text-gray-800">
           Recovery Mentor Program – Client Outcomes
         </h2>
-        <p className="text-gray-400 mb-12">
+        <p className="dark:text-gray-400 text-gray-600 mb-12 text-sm">
           Percentage of adolescents demonstrating improved outcomes
         </p>
 
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          {stats.map((item, index) => (
-            <div
-              key={index}
-              title={item.tooltip}
-              className="flex flex-col items-center justify-center border border-teal-400 rounded-xl w-full h-48 mx-auto text-center p-4 transition hover:scale-105 bg-gray-900 shadow"
-            >
-              <div className="text-3xl mb-2 text-teal-300">{item.icon}</div>
-              <div className="text-3xl font-bold text-white mb-1">
-                {item.isDays
-                  ? `${Math.round(displayed[index])}+`
-                  : `${displayed[index].toFixed(2)}%`}
+          {stats.map((item, index) => {
+            // Toned-down teal border for light mode, bright teal for dark mode
+            // Cards background white in light, dark in dark
+            return (
+              <div
+                key={index}
+                title={item.tooltip}
+                className="dark:bg-gray-900 bg-white dark:text-white text-text-main border dark:border-teal-300 border-teal-600 rounded-xl w-full h-48 mx-auto text-center p-4 transition hover:shadow-md"
+              >
+                <div className="text-3xl mb-2 dark:text-teal-300 text-teal-600">
+                  {item.icon}
+                </div>
+                <div className="text-3xl font-bold mb-1">
+                  {item.isDays
+                    ? `${Math.round(displayed[index])}+`
+                    : `${displayed[index].toFixed(2)}%`}
+                </div>
+                <p className="text-sm leading-tight dark:text-gray-300 text-gray-600">
+                  {item.label}
+                </p>
               </div>
-              <p className="text-sm text-gray-300 leading-tight">{item.label}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Testimonial transition */}
-        <p className="mt-12 text-gray-300 max-w-3xl mx-auto text-sm italic">
-          These numbers represent more than program outcomes — they represent real youth finding hope, rebuilding relationships, and making life-changing progress.
+        {/* Intro to testimonials */}
+        <p className="mt-12 max-w-3xl mx-auto text-sm italic dark:text-gray-300 text-gray-600">
+          These numbers represent more than program outcomes — they represent real youth 
+          finding hope, rebuilding relationships, and making life-changing progress.
         </p>
 
         {/* Testimonial Quotes */}
-        <h3 className="text-2xl font-bold text-white mt-16 mb-6">
+        <h3 className="text-2xl font-bold mt-16 mb-6 dark:text-white text-gray-800">
           In Their Own Words
         </h3>
 
@@ -120,9 +128,9 @@ export function ImpactAndTestimonials() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="bg-gray-900 p-6 rounded-lg shadow hover:bg-gray-800 transition"
+              className="dark:bg-gray-900 bg-white dark:hover:bg-gray-800 dark:text-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
             >
-              <p className="text-gray-300 italic mb-4">“{item.quote}”</p>
+              <p className="italic mb-4 dark:text-gray-300 text-gray-600">“{item.quote}”</p>
               <p className="text-teal-400 font-semibold text-sm">
                 — Recovery Mentor Program, Client
               </p>
