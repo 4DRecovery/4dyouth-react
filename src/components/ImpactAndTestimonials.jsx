@@ -76,7 +76,7 @@ export function ImpactAndTestimonials() {
             className="absolute top-0 left-0 h-full w-0 rounded-md"
             style={{
               background: 'linear-gradient(to right, #2dd4bf, #a78bfa)', // teal->purple
-              animation: 'loadBar 10s forwards',
+              animation: 'loadBar 12s forwards',
               zIndex: 0
             }}
           />
