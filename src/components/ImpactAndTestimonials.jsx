@@ -19,13 +19,13 @@ export function ImpactAndTestimonials() {
       label: 'Engaged in School',
       percent: 90.32,
       icon: <FaSchool />,
-      tooltip: 'Participants actively enrolled and attending.'
+      tooltip: 'Participants actively enrolled and attending school.'
     },
     {
       label: 'Improved Family Relationships',
       percent: 83.87,
       icon: <FaUsers />,
-      tooltip: 'Measured by parent/caregiver feedback and session attendance.'
+      tooltip: 'Measured by participant feedback'
     },
     {
       label: 'Retained Last Quarter',
@@ -38,7 +38,7 @@ export function ImpactAndTestimonials() {
       percent: 145,
       icon: <FaCalendarCheck />,
       isDays: true,
-      tooltip: 'RSS clients celebrated over 145 days of abstinence.'
+      tooltip: 'Youth Engaged in Our Recovery Mentor program celebrated over 145 days of abstinence.'
     }
   ];
 
