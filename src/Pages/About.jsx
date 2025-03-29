@@ -10,7 +10,7 @@ export default function About() {
         </h1>
 
         <p className="mb-10 text-center max-w-2xl mx-auto dark:text-gray-300 text-gray-700">
-          4D Youth is a program of 4D Recovery, designed to support adolescents through every phase 
+          4D Youth is a program of 4D Recovery, designed to support adolescents through every phase
           of their recovery journey — with services that center care, dignity, and possibility.
         </p>
 
@@ -85,6 +85,42 @@ export default function About() {
 
       {/* Impact + Testimonials Section */}
       <ImpactAndTestimonials />
+
+      {/* Flyer Preview & Download */}
+      <div className="max-w-4xl mx-auto mt-16 px-4">
+        <div className="bg-white dark:bg-gray-900 dark:text-gray-300 text-text-main p-6 rounded-lg shadow hover:shadow-md transition text-center">
+          <h3 className="text-xl font-semibold mb-4 dark:text-purple-300 text-purple-600">
+            View Our Adolescent Services Flyer
+          </h3>
+          
+          <p className="text-sm mb-4 dark:text-gray-400 text-gray-600 max-w-xl mx-auto">
+            Download or print this one-page overview to share our clinical services, peer mentorship, 
+            and support options with youth, parents, and the community.
+          </p>
+          
+          {/* Thumbnail */}
+          <div className="flex justify-center mb-4">
+            <img
+              src="/4D-Youth-Flyer.png"
+              alt="4D Youth Flyer Preview"
+              className="w-64 h-auto rounded shadow cursor-pointer"
+              onClick={() => window.open('/Youth Flyer.pdf', '_blank', 'noopener,noreferrer')}
+            />
+          </div>
+          
+          {/* Download PDF Button */}
+          <a
+            href="/Youth Flyer.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-teal-400 to-purple-400 
+                       hover:from-teal-300 hover:to-purple-300 text-white 
+                       font-semibold py-3 px-6 rounded-lg transition-colors"
+          >
+            Download &amp; Print PDF
+          </a>
+        </div>
+      </div>
 
       {/* Closing CTA */}
       <div className="text-center mt-16">
