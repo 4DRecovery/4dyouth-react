@@ -147,6 +147,43 @@ export default function Header() {
               <span className="sr-only">Donate to 4D Recovery's Capital Campaign</span>
             </a>
           </nav>
+          {/* Mobile Menu */}
+{menuOpen && (
+  <div className="md:hidden bg-black/95 text-white border-t border-gray-800 shadow-lg px-6 py-4 rounded-b-xl animate-fade-down space-y-4 text-sm font-medium transition-all">
+    <Link to="/" onClick={closeMenu} className={navLinkClass('/')}>
+      <FaHome className="text-xs" /> Home
+    </Link>
+    <Link to="/services" onClick={closeMenu} className={navLinkClass('/services')}>
+      <FaHandsHelping className="text-xs" /> Services
+    </Link>
+    <Link to="/about" onClick={closeMenu} className={navLinkClass('/about')}>
+      <FaInfoCircle className="text-xs" /> About
+    </Link>
+    <Link to="/staff" onClick={closeMenu} className={navLinkClass('/staff')}>
+      <FaUsers className="text-xs" /> Staff
+    </Link>
+    <a
+      href="https://4drecovery.jotform.com/231350818414956"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-teal-400 hover:text-purple-300 transition"
+    >
+      Referral Form
+    </a>
+    <a
+      href="https://4drecovery.org/capital-campaign/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block w-full text-center bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-4 rounded-lg transition"
+    >
+      <div className="inline-flex items-center justify-center gap-2">
+        <FaHeart className="text-sm" />
+        <span>Donate</span>
+      </div>
+    </a>
+  </div>
+)}
+
         </div>
       </header>
 
