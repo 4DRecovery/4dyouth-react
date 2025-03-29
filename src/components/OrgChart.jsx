@@ -1,5 +1,3 @@
-// components/OrgChart.jsx
-
 import React from 'react';
 
 export function OrgChart() {
@@ -76,37 +74,47 @@ export function OrgChart() {
   ];
 
   const renderPerson = (person, i) => (
+    // Replacing bg-gray-900 with themable classes
     <div
       key={i}
-      className="bg-gray-900 p-4 rounded-lg shadow hover:bg-gray-800 transition"
+      className="dark:bg-gray-900 dark:hover:bg-gray-800 bg-white hover:shadow-md dark:text-white text-text-main p-4 rounded-lg shadow transition"
     >
-      <p className="text-lg font-semibold text-white">{person.name}</p>
-      <p className="text-teal-300 text-sm">{person.title}</p>
+      <p className="text-lg font-semibold">
+        {person.name}
+      </p>
+      <p className="dark:text-teal-300 text-teal-600 text-sm font-medium">
+        {person.title}
+      </p>
       {person.creds && (
-        <p className="text-gray-400 text-sm italic">{person.creds}</p>
+        <p className="dark:text-gray-300 text-gray-600 text-sm italic">
+          {person.creds}
+        </p>
       )}
       {person.contact && (
-        <p className="text-gray-400 text-sm mt-1">{person.contact}</p>
+        <p className="dark:text-gray-400 text-gray-500 text-sm mt-1">
+          {person.contact}
+        </p>
       )}
     </div>
   );
 
   return (
-    <section className="bg-black py-20 px-6 border-t border-gray-800">
+    // Updated container background
+    <section className="dark:bg-black dark:text-white bg-background-warm text-text-main py-20 px-6 border-t dark:border-gray-800 border-gray-200 transition-colors">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-white text-center mb-2">
+        <h2 className="text-3xl font-bold text-center mb-2 dark:text-white text-gray-800">
           Meet Our Team
         </h2>
-        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          Our Clinical Services and Recovery Support Services teams work in
-          parallel — collaborating daily to ensure youth receive comprehensive,
-          culturally responsive care at every stage of their journey.
+        <p className="dark:text-gray-400 text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Our Clinical Services and Recovery Support Services teams work in parallel — 
+          collaborating daily to ensure youth receive comprehensive, culturally responsive care 
+          at every stage of their journey.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Clinical Services */}
           <div>
-            <h3 className="text-2xl font-semibold text-teal-400 mb-6 text-center md:text-left">
+            <h3 className="text-2xl font-semibold mb-6 text-center md:text-left dark:text-teal-300 text-teal-600">
               Clinical Services
             </h3>
             <div className="space-y-4">
@@ -116,7 +124,7 @@ export function OrgChart() {
 
           {/* Recovery Support Services */}
           <div>
-            <h3 className="text-2xl font-semibold text-purple-400 mb-6 text-center md:text-left">
+            <h3 className="text-2xl font-semibold mb-6 text-center md:text-left dark:text-purple-300 text-purple-600">
               Recovery Support Services
             </h3>
             <div className="space-y-4">
