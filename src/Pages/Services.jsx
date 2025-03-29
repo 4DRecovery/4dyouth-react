@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { TimelineOfServices } from '../components/TimelineOfServices';
 
 export default function Services() {
-  // This block removes old service workers/caches if needed
+  // Remove old SW/caches if needed
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -11,7 +11,6 @@ export default function Services() {
         });
       });
     }
-
     if ('caches' in window) {
       caches.keys().then((cacheNames) => {
         cacheNames.forEach((cacheName) => {
@@ -22,12 +21,11 @@ export default function Services() {
   }, []);
 
   return (
-    // Instead of bg-black + text-white, let's theme it:
     <section className="dark:bg-black dark:text-white bg-background-warm text-text-main border-t dark:border-gray-800 border-gray-200 py-20 px-6 relative transition-colors">
       <div className="max-w-5xl mx-auto">
         {/* Intro */}
         <div className="mb-16 text-center">
-          <h1 className="text-3xl font-bold mb-4 dark:text-white text-text-main">
+          <h1 className="text-3xl font-bold mb-4 dark:text-white text-gray-800">
             Comprehensive Adolescent Services
           </h1>
           <p className="dark:text-gray-300 text-gray-700 max-w-2xl mx-auto">
@@ -37,7 +35,7 @@ export default function Services() {
 
         {/* What to Expect */}
         <div id="expect" className="mb-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold text-center mb-8 dark:text-white text-text-main">
+          <h2 className="text-2xl font-bold text-center mb-8 dark:text-white text-gray-800">
             What to Expect When You Reach Out
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -59,7 +57,10 @@ export default function Services() {
                 key={i}
                 className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
               >
-                <h3 className="text-teal-300 font-semibold mb-2">{step.title}</h3>
+                {/* Toned-down teal: dark uses teal-300, light uses teal-600 */}
+                <h3 className="dark:text-teal-300 text-teal-600 font-semibold mb-2">
+                  {step.title}
+                </h3>
                 <p className="text-sm">{step.desc}</p>
               </div>
             ))}
@@ -68,10 +69,13 @@ export default function Services() {
 
         {/* Family Support */}
         <div id="family" className="mb-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold text-center mb-4 dark:text-white text-text-main">👨‍👩‍👧‍👦 Family Support</h2>
+          <h2 className="text-2xl font-bold text-center mb-4 dark:text-white text-gray-800">
+            👨‍👩‍👧‍👦 Family Support
+          </h2>
           <p className="dark:text-gray-300 text-gray-700 text-center max-w-2xl mx-auto mb-10">
             Families are part of the process. We help caregivers feel supported, informed, and involved every step of the way.
           </p>
+
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               {
@@ -95,14 +99,19 @@ export default function Services() {
                 key={i}
                 className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-5 rounded-lg shadow hover:shadow-md transition"
               >
-                <h3 className="text-teal-300 font-semibold mb-2">{item.title}</h3>
+                <h3 className="dark:text-teal-300 text-teal-600 font-semibold mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-sm">{item.desc}</p>
               </div>
             ))}
 
             {/* Parent Peer Group (Special Card) */}
             <div className="sm:col-span-2 dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition">
-              <h3 className="text-purple-300 font-semibold text-lg mb-2">Parent Peer Group</h3>
+              {/* Toned-down purple for heading: dark uses purple-300, light uses purple-600 */}
+              <h3 className="dark:text-purple-300 text-purple-600 font-semibold text-lg mb-2">
+                Parent Peer Group
+              </h3>
               <p className="text-sm mb-4">
                 Biweekly support group grounded in the <strong>Invitation to Change</strong> model.
               </p>
@@ -125,7 +134,10 @@ export default function Services() {
 
         {/* Clinical Services */}
         <div id="clinical" className="mb-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold text-teal-300 text-center mb-8">🩺 Clinical Services</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">
+            {/* Dark = teal-300, Light = teal-600 */}
+            <span className="dark:text-teal-300 text-teal-600">🩺 Clinical Services</span>
+          </h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               {
@@ -153,7 +165,9 @@ export default function Services() {
                 key={i}
                 className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-5 rounded-lg shadow hover:shadow-md transition"
               >
-                <h3 className="text-teal-300 font-semibold mb-2">{item.title}</h3>
+                <h3 className="dark:text-teal-300 text-teal-600 font-semibold mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-sm">{item.desc}</p>
               </div>
             ))}
@@ -162,7 +176,10 @@ export default function Services() {
 
         {/* Recovery Support */}
         <div id="recovery" className="mb-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold text-purple-300 text-center mb-8">✨ Recovery Support</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">
+            {/* Dark= purple-300, Light= purple-600 */}
+            <span className="dark:text-purple-300 text-purple-600">✨ Recovery Support</span>
+          </h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               {
@@ -190,7 +207,9 @@ export default function Services() {
                 key={i}
                 className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-5 rounded-lg shadow hover:shadow-md transition"
               >
-                <h3 className="text-purple-300 font-semibold mb-2">{item.title}</h3>
+                <h3 className="dark:text-purple-300 text-purple-600 font-semibold mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-sm">{item.desc}</p>
               </div>
             ))}
@@ -200,15 +219,15 @@ export default function Services() {
         {/* Timeline + Calendars */}
         <div id="timeline" className="scroll-mt-24 mb-20">
           <TimelineOfServices />
-
           <div id="calendars" className="scroll-mt-24 mt-20">
-            <h2 className="text-2xl font-bold dark:text-white text-text-main text-center mb-12">
+            <h2 className="text-2xl font-bold text-center mb-12 dark:text-white text-gray-800">
               📅 Program Schedules
             </h2>
-
             <div className="grid md:grid-cols-2 gap-10">
               <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-4 rounded-lg shadow hover:shadow-md transition">
-                <h3 className="text-lg font-semibold text-teal-300 text-center mb-4">🩺 Treatment Center</h3>
+                <h3 className="text-lg font-semibold text-teal-600 dark:text-teal-300 text-center mb-4">
+                  🩺 Treatment Center
+                </h3>
                 <iframe
                   src="https://calendar.google.com/calendar/embed?src=c_3533bd6f42a75f73775f11b5818f61870790574ebf40fb3d3fc41a54b8a6f6a2%40group.calendar.google.com&mode=AGENDA&ctz=America/Los_Angeles"
                   title="Treatment Center Schedule"
@@ -218,10 +237,12 @@ export default function Services() {
                   className="rounded-md"
                   scrolling="no"
                   loading="lazy"
-                ></iframe>
+                />
               </div>
               <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-4 rounded-lg shadow hover:shadow-md transition">
-                <h3 className="text-lg font-semibold text-purple-300 text-center mb-4">🏠 Recovery Center</h3>
+                <h3 className="text-lg font-semibold text-purple-600 dark:text-purple-300 text-center mb-4">
+                  🏠 Recovery Center
+                </h3>
                 <iframe
                   src="https://calendar.google.com/calendar/embed?src=eventsyouth@4drecovery.org&mode=AGENDA&ctz=America/Los_Angeles"
                   title="Recovery Center Schedule"
@@ -231,7 +252,7 @@ export default function Services() {
                   className="rounded-md"
                   scrolling="no"
                   loading="lazy"
-                ></iframe>
+                />
               </div>
             </div>
           </div>
@@ -239,10 +260,14 @@ export default function Services() {
 
         {/* Contacts */}
         <div id="contact" className="max-w-5xl mx-auto mb-20 scroll-mt-24">
-          <h2 className="text-2xl font-bold dark:text-white text-text-main text-center mb-8">📬 Program Contacts</h2>
+          <h2 className="text-2xl font-bold text-center mb-8 dark:text-white text-gray-800">
+            📬 Program Contacts
+          </h2>
           <div className="grid sm:grid-cols-2 gap-6 text-center">
             <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow transition">
-              <h3 className="text-xl font-semibold text-teal-300 mb-2">Dr. Nick Crapser</h3>
+              <h3 className="text-xl font-semibold text-teal-600 dark:text-teal-300 mb-2">
+                Dr. Nick Crapser
+              </h3>
               <p className="text-sm mb-2">Clinical Director</p>
               <a
                 href="mailto:Nick.Crapser@4drecovery.org"
@@ -252,7 +277,9 @@ export default function Services() {
               </a>
             </div>
             <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow transition">
-              <h3 className="text-xl font-semibold text-purple-300 mb-2">Robert Sanders</h3>
+              <h3 className="text-xl font-semibold text-purple-600 dark:text-purple-300 mb-2">
+                Robert Sanders
+              </h3>
               <p className="text-sm mb-2">Director of Youth Services</p>
               <a
                 href="mailto:Robert.Sanders@4drecovery.org"
