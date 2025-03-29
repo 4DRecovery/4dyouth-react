@@ -101,8 +101,8 @@ export default function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
           {/* Logo */}
           <Link to="/" onClick={closeMenu} className="flex items-center gap-2">
-            <img src={logo} alt="4D Youth Logo" className="h-12 w-auto" />
-            <span className="font-bold text-xl hidden sm:inline">4D Youth</span>
+            <img src={logo} alt="4D Youth Logo" className="h-16 w-auto" />
+            <span className="font-bold text-xl hidden sm:inline">4D Recovery | Youth </span>
           </Link>
 
           {/* Theme Toggle (Desktop) */}
