@@ -4,7 +4,17 @@
 
 /* === Global === */
 body {
-  @apply antialiased bg-black text-white font-sans;
+  @apply antialiased font-sans;
+}
+
+/* Dark vs. Light Mode */
+body.dark {
+  @apply bg-black text-white;
+}
+
+body:not(.dark) {
+  /* Use your new warm background & main text color from tailwind.config (or hex if you prefer) */
+  @apply bg-background-warm text-text-main;
 }
 
 h1, h2, h3, h4, h5 {
@@ -38,31 +48,78 @@ section {
   scroll-margin-top: 6rem; /* offsets sticky header for anchor targets */
 }
 
-/* === Cards === */
-.card {
-  @apply bg-gray-900 p-6 rounded-lg shadow hover:bg-gray-800 transition;
+/* === Cards & Testimonials (Light / Dark) === */
+
+/* Base card style */
+.card,
+.testimonial {
+  @apply p-6 rounded-lg shadow transition;
 }
 
+/* Dark mode card/testimonial */
+body.dark .card,
+body.dark .testimonial {
+  @apply bg-gray-900 hover:bg-gray-800;
+}
+
+/* Light mode card/testimonial */
+body:not(.dark) .card,
+body:not(.dark) .testimonial {
+  @apply bg-white hover:bg-gray-100;
+}
+
+/* Card header base */
 .card-header {
-  @apply text-xl font-semibold mb-2 text-teal-300;
+  @apply text-xl font-semibold mb-2;
+}
+
+/* Dark / Light card-header color */
+body.dark .card-header {
+  @apply text-teal-300;
+}
+body:not(.dark) .card-header {
+  @apply text-brand-teal; /* Or your new brand teal, e.g. #42D4D4 */
 }
 
 /* === Timeline Dot === */
 .timeline-dot {
-  @apply absolute -left-[11px] top-1 w-4 h-4 rounded-full border-2 bg-gray-950;
+  @apply absolute -left-[11px] top-1 w-4 h-4 rounded-full border-2;
+  /* We'll adjust background per dark/light if needed */
+}
+
+/* Dark timeline-dot */
+body.dark .timeline-dot {
+  @apply bg-gray-950 border-gray-700;
+}
+
+/* Light timeline-dot */
+body:not(.dark) .timeline-dot {
+  @apply bg-white border-gray-300;
 }
 
 /* === Testimonials === */
-.testimonial {
-  @apply bg-gray-900 p-6 rounded-lg shadow hover:bg-gray-800 transition;
+.testimonial-quote {
+  @apply italic mb-4;
 }
 
-.testimonial-quote {
-  @apply text-gray-300 italic mb-4;
+/* Adjust testimonial quote color in dark mode */
+body.dark .testimonial-quote {
+  @apply text-gray-300;
+}
+body:not(.dark) .testimonial-quote {
+  @apply text-gray-700;
 }
 
 .testimonial-author {
-  @apply text-teal-400 font-semibold text-sm;
+  @apply font-semibold text-sm;
+}
+
+/* Dark / Light testimonial-author color */
+body.dark .testimonial-author {
+  @apply text-teal-400;
+}
+body:not(.dark) .testimonial-author {
+  @apply text-brand-teal; /* again, your new brand teal color */
 }
 
 /* === Accessibility === */
@@ -75,9 +132,24 @@ a {
 input,
 textarea,
 select {
-  @apply bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-teal-400 focus:outline-none;
+  @apply border rounded-lg px-4 py-2 placeholder-gray-400 focus:ring-2 focus:ring-teal-400 focus:outline-none;
 }
 
+/* Dark forms */
+body.dark input,
+body.dark textarea,
+body.dark select {
+  @apply bg-gray-800 border-gray-600 text-white;
+}
+
+/* Light forms */
+body:not(.dark) input,
+body:not(.dark) textarea,
+body:not(.dark) select {
+  @apply bg-white border-gray-300 text-black focus:ring-teal-500;
+}
+
+/* === Animations === */
 @keyframes fade-down {
   0% {
     opacity: 0;
@@ -88,6 +160,7 @@ select {
     transform: translateY(0);
   }
 }
+
 .animate-fade-down {
   animation: fade-down 0.3s ease-out both;
 }

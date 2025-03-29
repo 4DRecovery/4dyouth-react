@@ -4,37 +4,64 @@ import { ImpactAndTestimonials } from '../components/ImpactAndTestimonials';
 
 export default function Home() {
   return (
-    <section className="bg-gradient-to-br from-black via-purple-800 to-black text-white">
-      {/* Hero */}
-      <div className="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Empowering Youth Through Recovery & Support
-        </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-6">
-          Clinical care. Peer mentorship. Real community.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to="/services"
-            aria-label="Explore services"
-            className="bg-teal-400 hover:bg-teal-300 text-black font-semibold py-3 px-6 rounded-lg transition"
-          >
-            Explore Services
-          </Link>
-          <a
-            href="https://4drecovery.jotform.com/231350818414956"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Make a referral"
-            className="border border-teal-400 hover:bg-teal-400 text-white hover:text-black font-semibold py-3 px-6 rounded-lg transition"
-          >
-            Make a Referral
-          </a>
-        </div>
-      </div>
+    <>
+      {/* HERO with campus rendering */}
+      <section className="relative min-h-[90vh] flex items-center justify-center">
+        {/* Background Image */}
+        <img
+          src="/campus.jpeg" 
+          alt="Campus Rendering"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
 
-      {/* Audience Tiles */}
-      <div className="bg-black py-16 px-6 border-t border-gray-800">
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto animate-fade-down">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            Empowering Youth Through Recovery &amp; Support
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 mb-6">
+            Clinical care. Peer mentorship. Real community.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/services"
+              aria-label="Explore services"
+              className="bg-teal-400 hover:bg-teal-300 text-black font-semibold py-3 px-6 rounded-lg transition"
+            >
+              Explore Services
+            </Link>
+            <a
+              href="https://4drecovery.jotform.com/231350818414956"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Make a referral"
+              className="border border-teal-400 hover:bg-teal-400 text-white hover:text-black font-semibold py-3 px-6 rounded-lg transition"
+            >
+              Make a Referral
+            </a>
+          </div>
+        </div>
+
+        {/* Wave/Curved Divider at bottom of hero */}
+        <div className="absolute inset-x-0 bottom-0 overflow-hidden h-[80px] leading-[0] rotate-180 z-20">
+          <svg
+            className="relative block w-[calc(100%+1.3px)] h-[80px]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 500 80"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,40 C150,80 350,0 500,40 L500,00 L0,0 Z"
+              className="fill-black"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      {/* WHO WE SUPPORT */}
+      <div className="bg-black py-16 px-6 border-t border-gray-800 -mt-[1px]">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-10">Who We Support</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
@@ -119,6 +146,6 @@ export default function Home() {
           Make a Referral
         </a>
       </div>
-    </section>
+    </>
   );
 }
