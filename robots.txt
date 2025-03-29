@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- 
+  Made by Robert M. Sanders | https://www.linkedin.com/in/robert-m-sanders
+-->
+<html lang="en">
+  <head>
+    <!-- 
+      Microsoft Bing verification. 
+      (Remove or update if not using Bing Webmaster Tools)
+    -->
+    <meta name="msvalidate.01" content="704DD29D2434B7D701A640AA9463E4C3" />
+    <meta name="yandex-verification" content="40b7bfc34c3407e1" />
+
+    <!-- Basic Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Title: Keep it concise but descriptive -->
+    <title>4D Recovery – Adolescent Services</title>
+    
+    <!-- Meta Description: Summarize the page purpose with relevant keywords -->
+    <meta 
+      name="description" 
+      content="4D Youth Recovery: providing adolescent clinical treatment, peer mentorship, and family support in Portland. Same-day assessments, transportation, and ongoing community-based services."
+    />
+    
+    <!-- Keywords (less relevant to modern SEO, but no harm) -->
+    <meta 
+      name="keywords" 
+      content="4D Youth, adolescent recovery, substance use treatment, peer mentorship, mental health, family therapy, transportation services"
+    />
+    
+    <!-- Robots: index and follow all links -->
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical: Helps avoid duplicate content issues -->
+    <link rel="canonical" href="https://4dyouth.org/" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#0f0f0f" />
+
+    <!-- Open Graph (Social Sharing) -->
+    <meta property="og:title" content="4D Recovery – Adolescent Services – Clinical & Peer Mentorship" />
+    <meta 
+      property="og:description" 
+      content="Empowering youth with inclusive, trauma-informed care. Discover clinical services, peer mentorship, and holistic family support at 4D Youth."
+    />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://4dyouth.org" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="4D Recovery – Adolescent Services" />
+    <meta 
+      name="twitter:description" 
+      content="Comprehensive adolescent clinical and recovery support. Join 4D Youth's mission in building healthier futures."
+    />
+    <meta name="twitter:image" content="/logo.png" />
+
+    <!-- Sitemap: Helps search engines find your structured list of URLs -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- Favicon / Shortcut Icon -->
+    <link rel="icon" href="/logo.png" type="image/png" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" 
+      rel="stylesheet"
+    />
+
+    <!-- Cache Busting -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Vite/React Entrypoint (let Vite handle hashed filenames) -->
+    <!-- Replace /src/main.jsx with your actual entry file path if different -->
+    
+    <script type="module" crossorigin src="/assets/index-11482d9e.js"></script>
+    <link rel="stylesheet" href="/assets/index-3f350d01.css">
+  </head>
+
+  <body class="bg-black text-white font-sans antialiased">
+    <!-- React root element -->
+    <div id="root"></div>
+  </body>
+</html>
