@@ -37,11 +37,11 @@ export function ImpactAndTestimonials() {
     }
   ];
 
-  // For the percentage increment effect
+  // Smooth increment effect for the percentages
   const [displayed, setDisplayed] = useState(stats.map(() => 0));
 
   useEffect(() => {
-    const duration = 10000; // 10 seconds
+    const duration = 10000; // 10 seconds total
     const steps = 200;
     const interval = duration / steps;
 
@@ -69,21 +69,13 @@ export function ImpactAndTestimonials() {
           Percentage of adolescents demonstrating improved outcomes
         </p>
 
-        {/* 
-          1) Wrap the entire grid in a relative container 
-             so we can place an absolute "loading bar" behind it 
-        */}
+        {/* Outer container with the animated gradient behind it */}
         <div className="relative mb-8">
-          {/* 
-            2) The background gradient bar (absolute). 
-               We'll animate width from 0%→100% using keyframes 
-               for 10s. 
-               Colors: teal→purple matching your logo brand. 
-          */}
+          {/* Background gradient bar grows left-to-right over 10s */}
           <div
             className="absolute top-0 left-0 h-full w-0 rounded-md"
             style={{
-              background: 'linear-gradient(to right, #2dd4bf, #a78bfa)', // teal-400 to purple-400
+              background: 'linear-gradient(to right, #2dd4bf, #a78bfa)', // teal->purple
               animation: 'loadBar 10s forwards',
               zIndex: 0
             }}
@@ -97,30 +89,36 @@ export function ImpactAndTestimonials() {
             `}
           </style>
 
-          {/* 
-            3) The outcome boxes 
-               must have relative z-10 so they're on top. 
-               Keep backgrounds transparent or minimal so you see the bar behind. 
-          */}
+          {/* Stat cards on top */}
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {stats.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-xl w-full h-48 mx-auto text-center p-4 
-                           flex flex-col items-center justify-center 
-                           dark:border-teal-300 border-teal-600 border
-                           bg-transparent" // ensures we see gradient behind
-                title={item.label}
+                // Semi-transparent backgrounds so the gradient shows through
+                className="
+                  w-full h-48 
+                  flex flex-col items-center justify-center 
+                  border dark:border-teal-300 border-teal-600
+                  rounded-2xl 
+                  transform transition-transform duration-200 
+                  hover:scale-105
+                  bg-white/80 dark:bg-black/50 
+                  backdrop-blur-sm
+                  shadow 
+                  "
               >
-                <div className="text-3xl mb-2 dark:text-white text-black">
+                {/* Icon: bigger for emphasis */}
+                <div className="text-4xl mb-2 dark:text-white text-black">
                   {item.icon}
                 </div>
+                {/* Number: the star of the show */}
                 <div className="text-3xl font-bold mb-1 dark:text-white text-black">
                   {item.isDays
                     ? `${Math.round(displayed[idx])}+`
                     : `${displayed[idx].toFixed(2)}%`}
                 </div>
-                <p className="text-sm leading-tight dark:text-gray-200 text-gray-800">
+                {/* Label */}
+                <p className="text-sm leading-tight dark:text-gray-200 text-gray-800 px-2">
                   {item.label}
                 </p>
               </div>
@@ -128,7 +126,7 @@ export function ImpactAndTestimonials() {
           </div>
         </div>
 
-        {/* Extra text and testimonials */}
+        {/* Supporting text */}
         <p className="mt-12 max-w-3xl mx-auto text-sm italic dark:text-gray-300 text-gray-600">
           These numbers represent more than program outcomes — they represent real youth 
           finding hope, rebuilding relationships, and making life-changing progress.
@@ -154,9 +152,17 @@ export function ImpactAndTestimonials() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="dark:bg-gray-900 bg-white dark:hover:bg-gray-800 dark:text-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
+              className="
+                dark:bg-gray-900 bg-white 
+                dark:hover:bg-gray-800 
+                dark:text-white text-text-main 
+                p-6 rounded-lg shadow hover:shadow-md 
+                transition
+              "
             >
-              <p className="italic mb-4 dark:text-gray-300 text-gray-600">{item.quote}</p>
+              <p className="italic mb-4 dark:text-gray-300 text-gray-600">
+                {item.quote}
+              </p>
               <p className="text-teal-400 font-semibold text-sm">
                 — Recovery Mentor Program, Client
               </p>
