@@ -9,7 +9,7 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center justify-center">
         {/* Background Image */}
         <img
-          src="/campus.jpeg" 
+          src="/campus.jpeg"
           alt="Campus Rendering"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -54,16 +54,19 @@ export default function Home() {
           >
             <path
               d="M0,40 C150,80 350,0 500,40 L500,00 L0,0 Z"
-              className="fill-black"
-            ></path>
+              // Light mode: brand.navy / Dark mode: black
+              className="fill-brand-navy dark:fill-black transition-colors"
+            />
           </svg>
         </div>
       </section>
 
       {/* WHO WE SUPPORT */}
-      <div className="bg-black py-16 px-6 border-t border-gray-800 -mt-[1px]">
+      <div className="dark:bg-black dark:text-white dark:border-gray-800 bg-background-warm text-text-main border-b border-gray-200 py-16 px-6 -mt-[1px] transition-colors">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-10">Who We Support</h2>
+          <h2 className="text-2xl font-bold mb-10 dark:text-white text-text-main">
+            Who We Support
+          </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
             {[
               {
@@ -86,9 +89,14 @@ export default function Home() {
                 cta: 'Refer a Youth →',
               },
             ].map((item, i) => (
-              <div key={i} className="bg-gray-900 p-6 rounded-lg shadow">
-                <h3 className="text-teal-300 font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-300 text-sm mb-2">{item.text}</p>
+              <div
+                key={i}
+                className="dark:bg-gray-900 bg-white dark:text-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
+              >
+                <h3 className="text-teal-300 dark:text-teal-300 font-semibold text-lg mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm mb-2">{item.text}</p>
                 {item.external ? (
                   <a
                     href={item.link}
@@ -109,10 +117,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Ben’s Story Preview */}
-      <div className="bg-gray-900 py-16 px-6 border-t border-gray-800 text-center">
-        <h2 className="text-2xl font-bold text-white mb-6">Ben’s Story</h2>
-        <p className="text-gray-400 text-sm max-w-xl mx-auto mb-6">
+      {/* BEN’S STORY PREVIEW */}
+      <div className="dark:bg-gray-900 dark:text-white bg-white text-text-main py-16 px-6 border-t dark:border-gray-800 border-gray-200 text-center transition-colors">
+        <h2 className="text-2xl font-bold mb-6">
+          Ben’s Story
+        </h2>
+        <p className="text-sm max-w-xl mx-auto mb-6 dark:text-gray-400 text-gray-600">
           What does recovery look like for a young person? Hear directly from someone who’s lived it.
         </p>
         <div className="max-w-4xl mx-auto">
@@ -125,16 +135,16 @@ export default function Home() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="rounded-lg shadow-lg"
-          ></iframe>
+          />
         </div>
       </div>
 
       {/* Recovery Impact + Testimonials */}
       <ImpactAndTestimonials />
 
-      {/* Final CTA */}
-      <div className="bg-black py-12 text-center border-t border-gray-800">
-        <h3 className="text-2xl font-bold text-white mb-4">
+      {/* FINAL CTA */}
+      <div className="dark:bg-black dark:text-white bg-background-warm text-text-main py-12 text-center border-t dark:border-gray-800 border-gray-200 transition-colors">
+        <h3 className="text-2xl font-bold mb-4">
           Not sure where to start?
         </h3>
         <a
