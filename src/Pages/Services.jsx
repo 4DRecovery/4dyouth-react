@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TimelineOfServices } from '../components/TimelineOfServices';
 
 export default function Services() {
+  useEffect(() => {
+    // Unregister all legacy service workers
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          registration.unregister();
+        });
+      });
+    }
+
+    // Delete all old caches
+    if ('caches' in window) {
+      caches.keys().then((cacheNames) => {
+        cacheNames.forEach((cacheName) => {
+          caches.delete(cacheName);
+        });
+      });
+    }
+  }, []);
   return (
     <section className="bg-black py-20 px-6 text-white border-t border-gray-800 relative">
       <div className="max-w-5xl mx-auto">
