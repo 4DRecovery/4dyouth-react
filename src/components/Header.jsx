@@ -26,8 +26,18 @@ const sectionIds = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ⬇ DEFAULT LIGHT:
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  // 1) Check if user manually chose a theme before.
+  // 2) Otherwise use system preference (prefers-color-scheme: dark).
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  });
 
   const [currentSection, setCurrentSection] = useState('');
   const location = useLocation();
@@ -95,7 +105,7 @@ export default function Header() {
             <span className="font-bold text-xl hidden sm:inline">4D Youth</span>
           </Link>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle (Desktop) */}
           <button
             onClick={toggleTheme}
             className="text-teal-400 hover:text-purple-400 hidden md:block"
@@ -153,44 +163,83 @@ export default function Header() {
               <span className="sr-only">Donate to 4D Recovery's Capital Campaign</span>
             </a>
           </nav>
-
-          {/* Mobile Menu */}
-          {menuOpen && (
-            <div className="md:hidden bg-black/95 text-white border-t border-gray-800 shadow-lg px-6 py-4 rounded-b-xl animate-fade-down space-y-4 text-sm font-medium transition-all">
-              <Link to="/" onClick={closeMenu} className={navLinkClass('/')}>
-                <FaHome className="text-xs" /> Home
-              </Link>
-              <Link to="/services" onClick={closeMenu} className={navLinkClass('/services')}>
-                <FaHandsHelping className="text-xs" /> Services
-              </Link>
-              <Link to="/about" onClick={closeMenu} className={navLinkClass('/about')}>
-                <FaInfoCircle className="text-xs" /> About
-              </Link>
-              <Link to="/staff" onClick={closeMenu} className={navLinkClass('/staff')}>
-                <FaUsers className="text-xs" /> Staff
-              </Link>
-              <a
-                href="https://4drecovery.jotform.com/231350818414956"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-teal-400 hover:text-purple-300 transition"
-              >
-                Referral Form
-              </a>
-              <a
-                href="https://4drecovery.org/capital-campaign/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-4 rounded-lg transition"
-              >
-                <div className="inline-flex items-center justify-center gap-2">
-                  <FaHeart className="text-sm" />
-                  <span>Donate</span>
-                </div>
-              </a>
-            </div>
-          )}
         </div>
+
+        {/* Mobile Nav */}
+        {menuOpen && (
+          <div className="md:hidden bg-black/95 text-white border-t border-gray-800 shadow-lg px-6 py-4 rounded-b-xl animate-fade-down space-y-4 text-sm font-medium transition-all">
+            <Link
+              to="/"
+              onClick={closeMenu}
+              className={navLinkClass('/')}
+            >
+              <FaHome className="text-xs" /> Home
+            </Link>
+            <Link
+              to="/services"
+              onClick={closeMenu}
+              className={navLinkClass('/services')}
+            >
+              <FaHandsHelping className="text-xs" /> Services
+            </Link>
+            <Link
+              to="/about"
+              onClick={closeMenu}
+              className={navLinkClass('/about')}
+            >
+              <FaInfoCircle className="text-xs" /> About
+            </Link>
+            <Link
+              to="/staff"
+              onClick={closeMenu}
+              className={navLinkClass('/staff')}
+            >
+              <FaUsers className="text-xs" /> Staff
+            </Link>
+            <a
+              href="https://4drecovery.jotform.com/231350818414956"
+              onClick={closeMenu}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-teal-400 hover:text-purple-300 transition"
+            >
+              Referral Form
+            </a>
+            <a
+              href="https://4drecovery.org/capital-campaign/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-4 rounded-lg transition"
+            >
+              <div className="inline-flex items-center justify-center gap-2">
+                <FaHeart className="text-sm" />
+                <span>Donate</span>
+              </div>
+            </a>
+
+            {/* Theme Toggle (Mobile) */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center gap-2 w-full mt-4
+                         border border-teal-400 hover:border-purple-400 
+                         rounded-lg px-3 py-2 text-teal-400 hover:text-purple-300
+                         transition"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <FaSun className="text-xs" />
+                  <span className="text-sm">Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <FaMoon className="text-xs" />
+                  <span className="text-sm">Dark Mode</span>
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </header>
 
       {/* Sticky Donate Button on Mobile */}
@@ -198,7 +247,9 @@ export default function Header() {
         href="https://4drecovery.org/capital-campaign/"
         target="_blank"
         rel="noopener noreferrer"
-        className="md:hidden fixed bottom-4 right-4 z-40 bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-4 rounded-full shadow-lg flex items-center gap-2 transition"
+        className="md:hidden fixed bottom-4 right-4 z-40 bg-gradient-to-r from-teal-400 to-purple-400 
+                   hover:from-teal-300 hover:to-purple-300 text-black font-semibold 
+                   py-2 px-4 rounded-full shadow-lg flex items-center gap-2 transition"
       >
         <FaHeart className="text-sm" />
         <span>Donate</span>
