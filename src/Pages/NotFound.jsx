@@ -1,22 +1,23 @@
-// pages/NotFound.jsx
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/', { replace: true });
+    }, 2000); // 2-second delay
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
-    <section className="bg-black text-white min-h-[60vh] flex flex-col items-center justify-center px-6 text-center">
+    <section className="dark:bg-black dark:text-white bg-background-warm text-text-main min-h-[60vh] flex flex-col items-center justify-center px-6 text-center">
       <h1 className="text-5xl font-bold text-purple-400 mb-4">404</h1>
       <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
-      <p className="text-gray-400 mb-6 max-w-md">
-        Sorry, the page you're looking for doesn’t exist or may have been moved.
+      <p className="mb-6 max-w-md">
+        Redirecting you to the homepage...
       </p>
-      <Link
-        to="/"
-        className="bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-5 rounded-lg transition"
-      >
-        Back to Home
-      </Link>
     </section>
   );
 }
