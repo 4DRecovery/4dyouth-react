@@ -57,7 +57,6 @@ export default function Services() {
                 key={i}
                 className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
               >
-                {/* Toned-down teal: dark uses teal-300, light uses teal-600 */}
                 <h3 className="dark:text-teal-300 text-teal-600 font-semibold mb-2">
                   {step.title}
                 </h3>
@@ -75,7 +74,6 @@ export default function Services() {
           <p className="dark:text-gray-300 text-gray-700 text-center max-w-2xl mx-auto mb-10">
             Families are part of the process. We help caregivers feel supported, informed, and involved every step of the way.
           </p>
-
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               {
@@ -108,7 +106,6 @@ export default function Services() {
 
             {/* Parent Peer Group (Special Card) */}
             <div className="sm:col-span-2 dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition">
-              {/* Toned-down purple for heading: dark uses purple-300, light uses purple-600 */}
               <h3 className="dark:text-purple-300 text-purple-600 font-semibold text-lg mb-2">
                 Parent Peer Group
               </h3>
@@ -119,25 +116,24 @@ export default function Services() {
                 “Helping a child who struggles with substance use can be a very lonely journey, made worse by lack of understanding, fear, and the impact of stigma and shame. 4D Youth Center’s Invitation to Change (ITC) parent support group provides a safe space to connect with others who understand what you’re experiencing. We bring evidence-based ideas together with kindness so you can support your child in a way that’s genuinely helpful and aligned with your values. We also emphasize self-care and self-compassion to sustain you through difficult times.”
               </p>
               <div className="text-center">
-              <a
-  href="https://www.twinflowercounseling.com/4d-parent-group"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="
-    inline-flex items-center justify-center
-    bg-gradient-to-r from-teal-400 to-purple-400
-    hover:from-teal-300 hover:to-purple-300
-    text-white font-semibold
-    py-3 px-6
-    rounded-lg
-    shadow-md hover:shadow-lg
-    transition-colors
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
-  "
->
-  Join the Parent Group
-</a>
-
+                <a
+                  href="https://www.twinflowercounseling.com/4d-parent-group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex items-center justify-center
+                    bg-gradient-to-r from-teal-400 to-purple-400
+                    hover:from-teal-300 hover:to-purple-300
+                    text-white font-semibold
+                    py-3 px-6
+                    rounded-lg
+                    shadow-md hover:shadow-lg
+                    transition-colors
+                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
+                  "
+                >
+                  Join the Parent Group
+                </a>
               </div>
             </div>
           </div>
@@ -146,7 +142,6 @@ export default function Services() {
         {/* Clinical Services */}
         <div id="clinical" className="mb-20 scroll-mt-24">
           <h2 className="text-2xl font-bold text-center mb-8">
-            {/* Dark = teal-300, Light = teal-600 */}
             <span className="dark:text-teal-300 text-teal-600">🩺 Clinical Services</span>
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -188,7 +183,6 @@ export default function Services() {
         {/* Recovery Support */}
         <div id="recovery" className="mb-20 scroll-mt-24">
           <h2 className="text-2xl font-bold text-center mb-8">
-            {/* Dark= purple-300, Light= purple-600 */}
             <span className="dark:text-purple-300 text-purple-600">✨ Recovery Support</span>
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -224,6 +218,150 @@ export default function Services() {
                 <p className="text-sm">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Transportation Section */}
+        <div id="transportation" className="mb-20 scroll-mt-24">
+          <h2 className="text-2xl font-bold text-center mb-4 dark:text-white text-gray-800">
+            🚐 4D Recovery Transportation Services
+          </h2>
+          <p className="dark:text-gray-300 text-gray-700 text-center max-w-2xl mx-auto mb-8">
+            Ensuring accessibility for all participants through structured transportation options for both
+            clinical treatment and recovery support services.
+          </p>
+          <ul className="list-disc list-inside space-y-2 dark:text-gray-300 text-gray-700 mb-8 max-w-2xl mx-auto">
+            <li>
+              <strong>Recovery Support Rides:</strong> Must be requested by <em>11:00 AM</em> on the day of the ride.
+            </li>
+            <li>
+              <strong>Clinical Treatment Rides:</strong> Automatically scheduled for clients attending treatment.
+            </li>
+          </ul>
+          <div className="text-center mb-12">
+            <a
+              href="https://4drecovery.jotform.com/240028140054946"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-block
+                bg-gradient-to-r from-teal-400 to-purple-400
+                hover:from-teal-300 hover:to-purple-300
+                text-white font-semibold
+                py-3 px-6
+                rounded-lg
+                shadow-md hover:shadow-lg
+                transition-colors
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
+              "
+            >
+              Request a Ride Here
+            </a>
+          </div>
+
+          {/* Clinical Treatment Transportation */}
+          <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition mb-10">
+            <h3 className="text-xl font-bold mb-2 dark:text-teal-300 text-teal-600">
+              🩺 Clinical Treatment Transportation Schedule
+            </h3>
+            <p className="text-sm mb-4">
+              (For clients attending 4D Recovery Adolescent Treatment Services.)
+            </p>
+            {/* Table style schedule */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr className="border-b dark:border-gray-700 border-gray-300">
+                    <th className="py-2 px-2">Trip</th>
+                    <th className="py-2 px-2">Departure → Arrival (Youth Center)</th>
+                    <th className="py-2 px-2">Return → Arrival (Treatment Center)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b dark:border-gray-700 border-gray-300">
+                    <td className="py-2 px-2">Trip 1</td>
+                    <td className="py-2 px-2">3:30 PM → 3:45 PM</td>
+                    <td className="py-2 px-2">4:00 PM → 4:15 PM</td>
+                  </tr>
+                  <tr className="border-b dark:border-gray-700 border-gray-300">
+                    <td className="py-2 px-2">Trip 2</td>
+                    <td className="py-2 px-2">6:45 PM → 7:00 PM</td>
+                    <td className="py-2 px-2">7:15 PM → 7:30 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-xs mt-4 dark:text-gray-400 text-gray-600">
+              <strong>Locations:</strong> 
+              <br />
+              <em>4D Recovery Adolescent Treatment Services:</em> 11104 SE Stark, Portland, OR 97216
+              <br />
+              <em>4D Recovery Youth Center:</em> 1206 SE 11th Ave., Portland, OR 97214
+            </p>
+          </div>
+
+          {/* Recovery Support Transportation */}
+          <div className="dark:bg-gray-900 dark:text-gray-300 bg-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition">
+            <h3 className="text-xl font-bold mb-2 dark:text-purple-300 text-purple-600">
+              🌟 Recovery Support Services Transportation Schedule
+            </h3>
+            <p className="text-sm mb-4">
+              (For participants attending the 4D Recovery Youth Center for peer-based recovery services.)
+            </p>
+            <p className="text-sm mb-4">
+              🛑 <strong>Limited General Pick-Ups – Requests Required</strong>
+              <br />
+              Must request by <em>11:00 AM</em> on the day of the ride.
+            </p>
+            {/* Table for Day vs Availability */}
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr className="border-b dark:border-gray-700 border-gray-300">
+                    <th className="py-2 px-2">Day</th>
+                    <th className="py-2 px-2">Availability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { day: 'Monday', availability: 'General Pick-up (By Request)' },
+                    { day: 'Tuesday', availability: 'Recovery High Schools' },
+                    { day: 'Wednesday', availability: 'General Pick-up (By Request)' },
+                    { day: 'Thursday', availability: 'Recovery High Schools' },
+                    { day: 'Friday', availability: 'General Pick-up (By Request)' },
+                    { day: 'Saturday', availability: 'General Pick-up (By Request)' },
+                    { day: 'Sunday', availability: 'General Pick-up (By Request)' }
+                  ].map((row, idx) => (
+                    <tr key={idx} className="border-b dark:border-gray-700 border-gray-300">
+                      <td className="py-2 px-2">{row.day}</td>
+                      <td className="py-2 px-2">{row.availability}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="text-center mt-6">
+              <a
+                href="https://4drecovery.jotform.com/240028140054946"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  inline-block
+                  bg-gradient-to-r from-teal-400 to-purple-400
+                  hover:from-teal-300 hover:to-purple-300
+                  text-white font-semibold
+                  py-3 px-6
+                  rounded-lg
+                  shadow-md hover:shadow-lg
+                  transition-colors
+                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
+                "
+              >
+                Submit a Ride Request Here
+              </a>
+            </div>
           </div>
         </div>
 
