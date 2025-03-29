@@ -119,14 +119,25 @@ export default function Services() {
                 “Helping a child who struggles with substance use can be a very lonely journey, made worse by lack of understanding, fear, and the impact of stigma and shame. 4D Youth Center’s Invitation to Change (ITC) parent support group provides a safe space to connect with others who understand what you’re experiencing. We bring evidence-based ideas together with kindness so you can support your child in a way that’s genuinely helpful and aligned with your values. We also emphasize self-care and self-compassion to sustain you through difficult times.”
               </p>
               <div className="text-center">
-                <a
-                  href="https://www.twinflowercounseling.com/4d-parent-group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-2 px-5 rounded-lg transition"
-                >
-                  Join the Parent Group
-                </a>
+              <a
+  href="https://www.twinflowercounseling.com/4d-parent-group"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="
+    inline-flex items-center justify-center
+    bg-gradient-to-r from-teal-400 to-purple-400
+    hover:from-teal-300 hover:to-purple-300
+    text-white font-semibold
+    py-3 px-6
+    rounded-lg
+    shadow-md hover:shadow-lg
+    transition-colors
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
+  "
+>
+  Join the Parent Group
+</a>
+
               </div>
             </div>
           </div>

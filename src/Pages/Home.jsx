@@ -151,13 +151,24 @@ export default function Home() {
           Not sure where to start?
         </h3>
         <a
-          href="https://4drecovery.jotform.com/231350818414956"
-          className="inline-block bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-3 px-6 rounded-lg transition"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Make a Referral
-        </a>
+  href="https://4drecovery.jotform.com/231350818414956"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="
+    inline-block
+    bg-gradient-to-r from-teal-400 to-purple-400
+    hover:from-teal-300 hover:to-purple-300
+    text-white font-semibold
+    py-3 px-6
+    rounded-lg
+    shadow-md hover:shadow-lg
+    transition-colors
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400
+  "
+>
+  Make a Referral
+</a>
+
       </div>
     </>
   );
