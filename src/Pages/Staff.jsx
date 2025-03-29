@@ -1,21 +1,20 @@
-// pages/Staff.jsx
-
 import React from 'react';
 import { StaffInfo } from '../components/StaffInfo';
 import { OrgChart } from '../components/OrgChart';
 
 export default function Staff() {
   return (
-    <section className="bg-black text-white border-t border-gray-800">
+    <section className="dark:bg-black dark:text-white bg-background-warm text-text-main border-t dark:border-gray-800 border-gray-200 transition-colors">
+      {/* Staff Info + Org Chart */}
       <StaffInfo />
       <OrgChart />
 
       {/* Join Our Team Banner */}
-      <div className="bg-gray-900 py-12 text-center border-t border-gray-800">
-        <h3 className="text-2xl font-bold text-white mb-4">
+      <div className="dark:bg-gray-900 dark:text-white bg-white text-text-main py-12 text-center border-t dark:border-gray-800 border-gray-200 transition-colors">
+        <h3 className="text-2xl font-bold text-center mb-4">
           Want to help us change lives?
         </h3>
-        <p className="text-gray-400 mb-6 text-sm max-w-xl mx-auto">
+        <p className="text-sm max-w-xl mx-auto mb-6 dark:text-gray-400 text-gray-600">
           We’re always looking for passionate people to join our mission. Explore open roles at 4D Recovery.
         </p>
         <a

@@ -54,7 +54,6 @@ export default function Home() {
           >
             <path
               d="M0,40 C150,80 350,0 500,40 L500,00 L0,0 Z"
-              // Light mode: brand.navy / Dark mode: black
               className="fill-brand-navy dark:fill-black transition-colors"
             />
           </svg>
@@ -64,7 +63,7 @@ export default function Home() {
       {/* WHO WE SUPPORT */}
       <div className="dark:bg-black dark:text-white dark:border-gray-800 bg-background-warm text-text-main border-b border-gray-200 py-16 px-6 -mt-[1px] transition-colors">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-10 dark:text-white text-text-main">
+          <h2 className="text-2xl font-bold mb-10 dark:text-white text-gray-800">
             Who We Support
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
@@ -93,7 +92,8 @@ export default function Home() {
                 key={i}
                 className="dark:bg-gray-900 bg-white dark:text-white text-text-main p-6 rounded-lg shadow hover:shadow-md transition"
               >
-                <h3 className="text-teal-300 dark:text-teal-300 font-semibold text-lg mb-2">
+                {/* Toned-down teal: light = teal-600, dark = teal-300 */}
+                <h3 className="dark:text-teal-300 text-teal-600 font-semibold text-lg mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm mb-2">{item.text}</p>
@@ -107,7 +107,10 @@ export default function Home() {
                     {item.cta}
                   </a>
                 ) : (
-                  <Link to={item.link} className="text-sm text-teal-400 hover:text-purple-300">
+                  <Link
+                    to={item.link}
+                    className="text-sm text-teal-400 hover:text-purple-300"
+                  >
                     {item.cta}
                   </Link>
                 )}
