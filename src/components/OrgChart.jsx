@@ -47,7 +47,7 @@ export function OrgChart() {
     },
     {
       name: 'Harlo Haynes',
-      title: 'Youth Community Center Director',
+      title: 'Recovery Services - Supervisor',
       creds: 'CRM-II, CADC-R',
       contact: 'harlo.haynes@4drecovery.org'
     },
