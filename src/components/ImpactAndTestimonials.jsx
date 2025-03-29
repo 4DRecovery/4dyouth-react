@@ -45,8 +45,8 @@ export function ImpactAndTestimonials() {
   const [displayed, setDisplayed] = useState(stats.map(() => 0));
 
   useEffect(() => {
-    const duration = 1000;
-    const steps = 20;
+    const duration = 10000;
+    const steps = 200;
     const interval = duration / steps;
 
     const intervalId = setInterval(() => {
