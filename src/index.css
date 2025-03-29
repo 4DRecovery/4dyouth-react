@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Global === */
+body {
+  @apply antialiased bg-black text-white font-sans;
+}
+
+h1, h2, h3, h4, h5 {
+  @apply font-bold leading-tight;
+}
+
+p {
+  @apply leading-relaxed text-base;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+/* === Buttons === */
+.btn-primary {
+  @apply bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-300 hover:to-purple-300 text-black font-semibold py-3 px-6 rounded-lg transition shadow;
+}
+
+.btn-outline {
+  @apply border border-teal-400 hover:bg-teal-400 text-white hover:text-black font-semibold py-3 px-6 rounded-lg transition;
+}
+
+/* === Links === */
+.link-default {
+  @apply text-teal-300 hover:text-purple-300 underline underline-offset-2;
+}
+
+/* === Sections === */
+section {
+  scroll-margin-top: 6rem; /* offsets sticky header for anchor targets */
+}
+
+/* === Cards === */
+.card {
+  @apply bg-gray-900 p-6 rounded-lg shadow hover:bg-gray-800 transition;
+}
+
+.card-header {
+  @apply text-xl font-semibold mb-2 text-teal-300;
+}
+
+/* === Timeline Dot === */
+.timeline-dot {
+  @apply absolute -left-[11px] top-1 w-4 h-4 rounded-full border-2 bg-gray-950;
+}
+
+/* === Testimonials === */
+.testimonial {
+  @apply bg-gray-900 p-6 rounded-lg shadow hover:bg-gray-800 transition;
+}
+
+.testimonial-quote {
+  @apply text-gray-300 italic mb-4;
+}
+
+.testimonial-author {
+  @apply text-teal-400 font-semibold text-sm;
+}
+
+/* === Accessibility === */
+button,
+a {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400;
+}
+
+/* === Forms === */
+input,
+textarea,
+select {
+  @apply bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:ring-2 focus:ring-teal-400 focus:outline-none;
+}
