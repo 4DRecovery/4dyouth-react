@@ -31,14 +31,14 @@ export function ImpactAndTestimonials() {
       label: 'Retained Last Quarter',
       percent: 91.6,
       icon: <FaUndo />,
-      tooltip: 'Youth engaged through entire quarter of services.'
+      tooltip: 'Youth engaged in multiple quarters of service'
     },
     {
       label: 'Average Abstinence Achieved (RSS)',
       percent: 145,
       icon: <FaCalendarCheck />,
       isDays: true,
-      tooltip: 'RSS clients average over 145 days of abstinence.'
+      tooltip: 'RSS clients celebrated over 145 days of abstinence.'
     }
   ];
 
