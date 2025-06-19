@@ -42,7 +42,7 @@ export function OrgChart() {
   const recovery = [
     {
       name: 'Robert Sanders',
-      title: 'Youth and Family Services Manager',
+      title: 'Youth and Family Services',
       creds: 'CRM-II, CADC-I, QMHA-R'
     },
     {
@@ -53,6 +53,9 @@ export function OrgChart() {
     },
     {
       name: 'John Haynes',
+      title: 'Recovery Center Supervisor',
+      creds: 'CRM-II, CADC-R',
+      contact: 'John.Haynes@4drecovery.org'
       
     },
     {
